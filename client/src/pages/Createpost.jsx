@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPostAsync, selectPostAddStatus } from '../features/post/PostSlice';
 import { uploadImage } from '../features/post/PostApi';
@@ -10,7 +10,7 @@ import { selectUserInfo } from '../features/auth/AuthSlice';
 export default function CreatePost() {
     const navigate = useNavigate();
 
-     // Redux hooks for dispatching actions and selecting state
+    // Redux hooks for dispatching actions and selecting state
     const dispatch = useDispatch();
     const postAddStatus = useSelector(selectPostAddStatus); // Fetching post submission status
     const userInfo = useSelector(selectUserInfo); // Fetching user information
@@ -27,11 +27,11 @@ export default function CreatePost() {
 
     useEffect(() => {
         if (!userInfo) {
-          navigate('/login')
+            navigate('/login')
         }
-      }, [userInfo, navigate]);
+    }, [userInfo, navigate]);
 
-      // Handles image upload to the server.
+    // Handles image upload to the server.
     const handleImageUpload = async () => {
         try {
             if (!image) {
@@ -84,7 +84,7 @@ export default function CreatePost() {
         setImage(file);
         setFileName(file.name);
 
-    // Generate a preview of the selected image
+        // Generate a preview of the selected image
         const reader = new FileReader();
         reader.onload = () => setImagePreview(reader.result);
         reader.readAsDataURL(file);
@@ -93,7 +93,12 @@ export default function CreatePost() {
 
     return (
         <>
-            <div className="container mt-5 mb-5 pb-5  pt-5   flex-center">
+            <div className='icon_padding'>
+                <NavLink to='/'>
+                    <i className="fas back_arrow fa-chevron-left"></i>
+                </NavLink>
+            </div>
+            <div className="container  mb-5 pb-5  pt-5 margin_align  flex-center">
                 <div className="card">
                     <h1 className="text-center card-header text-white secondary-color instagram">Create Your Post!</h1>
                     <div className="card-body">
