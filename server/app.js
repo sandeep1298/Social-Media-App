@@ -17,7 +17,7 @@ mongoose.connect(MONGOURI)
     });
 
     app.use(cors({
-        origin: ['http://localhost:5173'], 
+        origin: ['https://social-media-app-3h5q.vercel.app/'], 
         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
         credentials: true, // Allow cookies if needed
     }));
