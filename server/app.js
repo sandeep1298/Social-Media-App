@@ -17,7 +17,7 @@ mongoose.connect(MONGOURI)
     });
 
     app.use(cors({
-        origin: 'http://localhost:5173', // Allow requests from this origin
+        origin: ['http://localhost:5173', 'https://social-media-app-szmn.onrender.com'], 
         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
         credentials: true, // Allow cookies if needed
     }));
