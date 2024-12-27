@@ -224,3 +224,9 @@
 margin-top: 25px;
 }
 }
+
+@media (min-width: 320px) and (max-width: 480px){
+  .icon_padding{
+    padding: 20px 0px 0px 10px;
+  }
+}
