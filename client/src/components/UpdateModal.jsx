@@ -18,6 +18,7 @@ function UpdateModal({ show, handleClose, posts, token }) {
 
   const [fileName, setFileName] = useState("");
 
+  //initialize with the existing post details
   useEffect(() => {
     if (posts) {
       setTitle(posts.title || "");
@@ -51,6 +52,8 @@ function UpdateModal({ show, handleClose, posts, token }) {
 
     try {
       let updatedPhotoUrl = posts.photo;
+
+      // Upload new image if provided
       if (image && image !== posts.photo) {
         updatedPhotoUrl = await handleImageUpload();
       }
@@ -69,6 +72,8 @@ function UpdateModal({ show, handleClose, posts, token }) {
         if (updatedPost.payload) {
           toast.success("Post updated successfully!");
           handleClose();
+
+          // Fetch updated posts after successful update
           if (updatePostAsync.fulfilled.match(updatedPost)) {
             await dispatch(fetchPostsAsync(token));
           }
@@ -81,7 +86,7 @@ function UpdateModal({ show, handleClose, posts, token }) {
     }
   };
 
-
+// Handles file input change for image upload.
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -94,6 +99,7 @@ function UpdateModal({ show, handleClose, posts, token }) {
     setImage(file);
     setFileName(file.name)
 
+     // Read the file as a data URL to display image preview
     const reader = new FileReader();
     reader.onload = () => setImagePreview(reader.result);
     reader.readAsDataURL(file);

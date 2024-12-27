@@ -27,15 +27,13 @@ require('./models/post')
 
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/post');
-const userRoutes = require('./routes/user');
-
 
 
 
 app.use(express.json())
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
-app.use('/api/users', userRoutes);
+
 
 app.listen(PORT, ()=>{
     console.log("sever is running on" ,PORT)

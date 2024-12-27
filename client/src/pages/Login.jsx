@@ -13,6 +13,8 @@ export default function Login() {
 
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+
+    // Redux state selectors to access login status, errors, and user information
     const status = useSelector(selectLoginStatus)
     const error = useSelector(selectLoginError)
     const userInfo = useSelector(selectUserInfo);
@@ -30,6 +32,7 @@ export default function Login() {
         }
     }, [error])
 
+    // Effect hook to show success message on successful login and reset Redux state
     useEffect(() => {
         if (status === "fullfilled") {
             toast.success("Login Successfull");
@@ -40,7 +43,7 @@ export default function Login() {
         }
     }, [status, dispatch])
 
-
+ // Form submission handler
     const handlesubmit = (e) => {
         e.preventDefault();
 

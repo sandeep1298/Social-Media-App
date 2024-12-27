@@ -9,9 +9,11 @@ import { selectUserInfo } from '../features/auth/AuthSlice';
 
 export default function CreatePost() {
     const navigate = useNavigate();
+
+     // Redux hooks for dispatching actions and selecting state
     const dispatch = useDispatch();
-    const postAddStatus = useSelector(selectPostAddStatus);
-    const userInfo = useSelector(selectUserInfo);
+    const postAddStatus = useSelector(selectPostAddStatus); // Fetching post submission status
+    const userInfo = useSelector(selectUserInfo); // Fetching user information
 
 
     const token = userInfo?.token
@@ -29,6 +31,7 @@ export default function CreatePost() {
         }
       }, [userInfo, navigate]);
 
+      // Handles image upload to the server.
     const handleImageUpload = async () => {
         try {
             if (!image) {
@@ -43,6 +46,7 @@ export default function CreatePost() {
         }
     };
 
+    //Handles form submission for creating a post.
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -52,10 +56,10 @@ export default function CreatePost() {
         }
 
         try {
-            const imageUrl = await handleImageUpload();
+            const imageUrl = await handleImageUpload(); // Upload the image and get the URL
             if (imageUrl) {
                 const postDetails = { title, body, photo: imageUrl };
-                await dispatch(createPostAsync({ postDetails, token }));
+                await dispatch(createPostAsync({ postDetails, token })); // Dispatch action to create the post
                 toast.success("Post created successfully!");
 
                 setTimeout(() => {
@@ -67,6 +71,7 @@ export default function CreatePost() {
         }
     };
 
+    // Handles the file input change event for image selection.
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -79,7 +84,7 @@ export default function CreatePost() {
         setImage(file);
         setFileName(file.name);
 
-
+    // Generate a preview of the selected image
         const reader = new FileReader();
         reader.onload = () => setImagePreview(reader.result);
         reader.readAsDataURL(file);

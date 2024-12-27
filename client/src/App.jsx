@@ -13,6 +13,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Footer = lazy(() => import('./components/Footer'));
 const Navbar = lazy(() => import('./components/Navbar'));
 
+// Initialize Animation on Scroll library with default options
 Aos.init({
   once: true,
 })

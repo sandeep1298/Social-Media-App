@@ -13,6 +13,8 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const dispatch = useDispatch();
+
+  // Retrieve posts and user information from Redux store
   const posts = useSelector(selectPosts);
 
   const userInfo = useSelector(selectUserInfo);
@@ -22,9 +24,10 @@ export default function Home() {
   const token = userInfo?.token;
   const user_id = userInfo?._id;
 
-
+// State to manage comment input texts for each post
   const [commentTexts, setCommentTexts] = useState({});
 
+  // State to manage the visibility of the update modal
   const [show, setShow] = useState(false);
 
 
@@ -37,33 +40,36 @@ export default function Home() {
 
   const navigate = useNavigate();
 
+  //Redirect to login if user is not authenticated
   useEffect(() => {
     if (!userInfo) {
       navigate('/login')
     }
   }, [userInfo, navigate]);
 
-
+//Fetching all the posts
   useEffect(() => {
     if (token) {
-
       dispatch(fetchPostsAsync(token))
-
     }
   }, [dispatch, token]);
 
+
+//Handles liking a post.
   const handleLike = (postId) => {
     if (token) {
       dispatch(likePostAsync({ postId, token }));
     }
   };
 
+  //Handles unliking a post.
   const handleUnlike = (postId) => {
     if (token) {
       dispatch(unlikePostAsync({ postId, token }));
     }
   };
 
+  // Handles changes in the comment text for a specific post.
   const handleComment = (postId) => {
     const text = commentTexts[postId];
     if (text && token) {
@@ -83,6 +89,8 @@ export default function Home() {
     }
   }, [successMessage]);
 
+
+  //Handles deleting a post.
   const handleDelete = async (postId) => {
     if (token) {
       try {
@@ -96,6 +104,7 @@ export default function Home() {
     }
   };
 
+  // Show loader while fetching posts
   if (status === "pending") {
     return <Loader />
   }

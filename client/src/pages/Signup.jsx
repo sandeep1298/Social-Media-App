@@ -10,6 +10,7 @@ export default function Signup() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+    // Redux state selectors to access signup status, errors, and user information
     const status = useSelector(selectSignupStatus)
     const error = useSelector(selectSignupError)
     const userInfo = useSelector(selectUserInfo);
@@ -24,6 +25,7 @@ export default function Signup() {
         }
     }, [error])
 
+     // Effect hook to redirect to home page if userInfo is available (user is logged in)
     useEffect(() => {
         if (userInfo) {
             navigate("/")
@@ -31,6 +33,7 @@ export default function Signup() {
 
     }, [userInfo, navigate])
 
+    // Effect hook to show success message on successful signup and reset Redux state
     useEffect(() => {
         if (status === "fullfilled") {
             toast.success("Signup successful!");
@@ -42,6 +45,7 @@ export default function Signup() {
         }
     }, [status, dispatch]);
 
+    // Form submission handler
     const handlesubmit = (e) => {
         e.preventDefault();
 

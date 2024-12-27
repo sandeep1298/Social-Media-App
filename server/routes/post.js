@@ -16,6 +16,7 @@ router.get('/allpost', requireLogin, (req, res) => {
             console.log(err);
         });
 });
+
 router.get('/getsubpost',requireLogin, (req,res)=>{
     Post.find({postedBy:{$in:req.user.following}})
     .populate("postedBy","_id name")

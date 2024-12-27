@@ -8,6 +8,9 @@ export default function Navbar() {
   const userInfo = useSelector(selectUserInfo);
   const dispatch = useDispatch();
 
+
+  /*handleLogout function is triggered when the user clicks the logout option.
+  dispatches the logout action and navigates the user to the login page */
   const handleLogout = () => {
     dispatch(logout());
     navigate("/login");
