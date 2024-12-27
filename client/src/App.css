@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+
+.pink-color {
+  background: rgb(218, 58, 84);
+}
+
+.instagram {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 30px;
+}
+
+.hovericons:hover {
+  cursor: pointer;
+}
+
+.modal-footer {
+  border: none;
+  padding: 15px 30px 25px 30px;
+  justify-content: center;
+}
+
+.modal {
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  padding: 25px 30px 0px 30px;
+  color: #f5751a;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 19px;
+  font-weight: 600;
+  width: 35px;
+  height: 35px;
+  background: #ff0000;
+  opacity: 1;
+  text-align: center;
+  line-height: 35px;
+  text-shadow: none;
+  padding: 0 !important;
+  border-radius: 0;
+  border-top-right-radius: 4px;
+  color: #fff !important;
+  margin: 0 !important;
+}
+
+.btn-close::before,
+.btn-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background-color: white;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 15px 30px 5px 30px;
+}
+
+.delete_icon {
+  color: red;
+  font-size: 20px;
+  padding-top: 4px;
+}
+
+.edit_icons {
+  color: blueviolet;
+  font-size: 20px;
+  padding-top: 4px;
+}
+
+.thumbs_icon {
+  font-size: 25px;
+  color: rgb(255, 174, 0);
+}
+
+.heart_icon {
+  font-size: 25px;
+  color: red;
+}
+
+.btn_login_custom {
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.img-thumbnail {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #f9f9f9;
+}
+
+.btn-skyblue {
+  background-color: rgb(56, 160, 201);
+}
+
+.bg-warning-blue {
+  background: rgb(114, 245, 250);
+}
+
+.tooltip_custom {
+  background-color: blue !important;
+  color: white;
+  font-size: 15px !important;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #f56f61;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: -40px;
+  background-color: red;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  min-width: 120px;
+  z-index: 10;
+  text-align: center;
+  display: none;
+}
+
+.flex_gap {
+
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-container:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  color: white;
+  cursor: pointer;
+}
+
+.horizontal_align {
+  display: flex;
+  gap: 10px;
+}
+
+.dropdown-menu:hover {
+  display: block;
+}
+
+.bg_footer {
+  background: rgb(218, 58, 84);
+}
+
+.copyright_bg {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 300px) and (max-width: 992px){
+.spacing_align{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.spacing_small{
+margin-top: 25px;
+}
+}
